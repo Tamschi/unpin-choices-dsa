@@ -138,3 +138,26 @@ impl<T: ?Sized> AntiPinned<T> {
 		unsafe { mem::transmute(boxed) }
 	}
 }
+
+/// It's also possible to reinterpret references.
+///
+/// Note that the other direction, to `&T` and `&mut T`, is already covered through [`Deref`] and [`DerefMut`].
+impl<T: ?Sized> AntiPinned<T> {
+	/// Reinterprets a reference so that the target is wrapped in [`AntiPinned<_>`].
+	#[must_use]
+	pub fn from_ref(reference: &T) -> &Self {
+		unsafe {
+			//SAFETY: This is a direct reinterpret-cast between the compatible `T` and `AntiPinned<T>`.
+			&*(reference as *const _ as *const _)
+		}
+	}
+
+	/// Reinterprets an exclusive reference so that the target is wrapped in [`AntiPinned<_>`].
+	#[must_use]
+	pub fn from_mut(reference: &mut T) -> &mut Self {
+		unsafe {
+			//SAFETY: This is a direct reinterpret-cast between the compatible `T` and `AntiPinned<T>`.
+			&mut *(reference as *mut _ as *mut _)
+		}
+	}
+}
