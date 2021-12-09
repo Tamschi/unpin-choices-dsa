@@ -6,6 +6,12 @@
 #![warn(clippy::pedantic, missing_docs)]
 #![allow(clippy::semicolon_if_nothing_returned)]
 
+#![no_std]
+
 #[cfg(doctest)]
 #[doc = include_str!("../README.md")]
 mod readme {}
+
+extern crate alloc;
+
+pub mod anti_pinned;
