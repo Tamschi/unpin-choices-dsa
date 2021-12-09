@@ -17,7 +17,9 @@ use core::{
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct AntiPinned<T: ?Sized>(pub T);
 
-// `Unpin` is safe to implement as exposing `Self::0` would require `unsafe` already.
+/// # Implementation note
+///
+/// [`Unpin`] is safe to implement as exposing `Self::0` would require `unsafe` already.
 impl<T: ?Sized> Unpin for AntiPinned<T> {}
 
 /// This wrapper is supposed to only change pinned behaviour,
@@ -95,7 +97,7 @@ macro_rules! boxed_conversions {
 
 			/// Wraps a pinned boxed value in [`AntiPinned<_>`], in place.
 			#[must_use]
-			pub fn $wrap_pinned(boxed: $box<T>) -> Box<Self>
+			pub fn $wrap_pinned(boxed: Pin<$box<T>>) -> Pin<Box<Self>>
 			where
 				T: Unpin
 			{
@@ -107,7 +109,7 @@ macro_rules! boxed_conversions {
 			$(
 				/// Unwraps a pinned boxed [`AntiPinned<_>`] in place.
 				#[must_use]
-				pub fn $unwrap_pinned(boxed: $box<Self>) -> Box<T>
+				pub fn $unwrap_pinned(boxed: Pin<$box<Self>>) -> Pin<Box<T>>
 				where
 					T: Unpin
 				{
@@ -140,7 +142,11 @@ impl<T: ?Sized> AntiPinned<T> {
 
 /// It's also possible to reinterpret references.
 ///
-/// Note that the other direction, to `&T` and `&mut T`, is already covered through [`Deref`] and [`DerefMut`].
+/// Note that the other direction, to `&T` and `&mut T`,
+/// is already covered through [`Deref`] and [`DerefMut`].
+///
+/// You can always wrap references to [`AntiPinned<_>`] further using [`Pin<_>::new(…)`](`Pin::new`),
+/// as [`AntiPinned<_>`] is [`Unpin`].
 impl<T: ?Sized> AntiPinned<T> {
 	/// Reinterprets a reference so that the target is wrapped in [`AntiPinned<_>`].
 	#[must_use]
