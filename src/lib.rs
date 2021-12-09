@@ -14,3 +14,4 @@ mod readme {}
 extern crate alloc;
 
 pub mod anti_pinned;
+pub mod pinned_pin;
