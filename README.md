@@ -1,29 +1,29 @@
-# TODO_CRATE_NAME
+# unpin-choices-dsa
 
-[![Lib.rs](https://img.shields.io/badge/Lib.rs-*-84f)](https://lib.rs/crates/TODO_CRATE_NAME)
-[![Crates.io](https://img.shields.io/crates/v/TODO_CRATE_NAME)](https://crates.io/crates/TODO_CRATE_NAME)
-[![Docs.rs](https://docs.rs/TODO_CRATE_NAME/badge.svg)](https://docs.rs/TODO_CRATE_NAME)
+[![Lib.rs](https://img.shields.io/badge/Lib.rs-*-84f)](https://lib.rs/crates/unpin-choices-dsa)
+[![Crates.io](https://img.shields.io/crates/v/unpin-choices-dsa)](https://crates.io/crates/unpin-choices-dsa)
+[![Docs.rs](https://docs.rs/unpin-choices-dsa/badge.svg)](https://docs.rs/unpin-choices-dsa)
 
 ![Rust 1.54](https://img.shields.io/static/v1?logo=Rust&label=&message=1.54&color=grey)
-[![CI](https://github.com/Tamschi/TODO_CRATE_NAME/workflows/CI/badge.svg?branch=develop)](https://github.com/Tamschi/TODO_CRATE_NAME/actions?query=workflow%3ACI+branch%3Adevelop)
-![Crates.io - License](https://img.shields.io/crates/l/TODO_CRATE_NAME/0.0.1)
+[![CI](https://github.com/Tamschi/unpin-choices-dsa/workflows/CI/badge.svg?branch=develop)](https://github.com/Tamschi/unpin-choices-dsa/actions?query=workflow%3ACI+branch%3Adevelop)
+![Crates.io - License](https://img.shields.io/crates/l/unpin-choices-dsa/0.0.1)
 
-[![GitHub](https://img.shields.io/static/v1?logo=GitHub&label=&message=%20&color=grey)](https://github.com/Tamschi/TODO_CRATE_NAME)
-[![open issues](https://img.shields.io/github/issues-raw/Tamschi/TODO_CRATE_NAME)](https://github.com/Tamschi/TODO_CRATE_NAME/issues)
-[![open pull requests](https://img.shields.io/github/issues-pr-raw/Tamschi/TODO_CRATE_NAME)](https://github.com/Tamschi/TODO_CRATE_NAME/pulls)
-[![good first issues](https://img.shields.io/github/issues-raw/Tamschi/TODO_CRATE_NAME/good%20first%20issue?label=good+first+issues)](https://github.com/Tamschi/TODO_CRATE_NAME/contribute)
+[![GitHub](https://img.shields.io/static/v1?logo=GitHub&label=&message=%20&color=grey)](https://github.com/Tamschi/unpin-choices-dsa)
+[![open issues](https://img.shields.io/github/issues-raw/Tamschi/unpin-choices-dsa)](https://github.com/Tamschi/unpin-choices-dsa/issues)
+[![open pull requests](https://img.shields.io/github/issues-pr-raw/Tamschi/unpin-choices-dsa)](https://github.com/Tamschi/unpin-choices-dsa/pulls)
+[![good first issues](https://img.shields.io/github/issues-raw/Tamschi/unpin-choices-dsa/good%20first%20issue?label=good+first+issues)](https://github.com/Tamschi/unpin-choices-dsa/contribute)
 
-[![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/TODO_CRATE_NAME.svg)](https://web.crev.dev/rust-reviews/crate/TODO_CRATE_NAME/)
-[![Zulip Chat](https://img.shields.io/endpoint?label=chat&url=https%3A%2F%2Fiteration-square-automation.schichler.dev%2F.netlify%2Ffunctions%2Fstream_subscribers_shield%3Fstream%3Dproject%252FTODO_CRATE_NAME)](https://iteration-square.schichler.dev/#narrow/stream/project.2FTODO_CRATE_NAME)
+[![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/unpin-choices-dsa.svg)](https://web.crev.dev/rust-reviews/crate/unpin-choices-dsa/)
+[![Zulip Chat](https://img.shields.io/endpoint?label=chat&url=https%3A%2F%2Fiteration-square-automation.schichler.dev%2F.netlify%2Ffunctions%2Fstream_subscribers_shield%3Fstream%3Dproject%252Funpin-choices-dsa)](https://iteration-square.schichler.dev/#narrow/stream/project.2Funpin-choices-dsa)
 
-TODO_README_DESCRIPTION
+A "data structures & algorithms" demo repository for a blog post. This isn't a well-structured package by itself.
 
 ## Installation
 
 Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
 
 ```cmd
-cargo add TODO_CRATE_NAME
+cargo add unpin-choices-dsa
 ```
 
 ## Example
@@ -57,7 +57,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## Versioning
 
-`TODO_CRATE_NAME` strictly follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) with the following exceptions:
+`unpin-choices-dsa` strictly follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) with the following exceptions:
 
 - The minor version will not reset to 0 on major version changes (except for v1).  
 Consider it the global feature level.

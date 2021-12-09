@@ -3,16 +3,6 @@
 version = 3
 
 [[package]]
-name = "TODO_CRATE_NAME"
-version = "0.0.1"
-dependencies = [
- "cargo-husky",
- "git_info",
- "version-sync",
- "wasm-bindgen-test",
-]
-
-[[package]]
 name = "bitflags"
 version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -250,6 +240,16 @@ name = "unicode-xid"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7fe0bb3479651439c9112f72b6c505038574c9fbb575ed1bf3b797fa39dd564"
+
+[[package]]
+name = "unpin-choices-dsa"
+version = "0.0.1"
+dependencies = [
+ "cargo-husky",
+ "git_info",
+ "version-sync",
+ "wasm-bindgen-test",
+]
 
 [[package]]
 name = "url"
