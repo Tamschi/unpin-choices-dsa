@@ -1,13 +1,12 @@
 //! A minimal always-[`Unpin`] wrapper.
 
+use alloc::{boxed::Box, rc::Rc, sync::Arc};
 use core::{
 	borrow::{Borrow, BorrowMut},
 	mem,
 	ops::{Deref, DerefMut},
 	pin::Pin,
 };
-
-use alloc::{boxed::Box, rc::Rc, sync::Arc};
 
 /// A minimal wrapper that is always [`Unpin`].
 ///
