@@ -5,7 +5,6 @@
 #![doc(html_root_url = "https://docs.rs/unpin-choices-dsa/0.0.1")]
 #![warn(clippy::pedantic, missing_docs)]
 #![allow(clippy::semicolon_if_nothing_returned)]
-
 #![no_std]
 
 #[cfg(doctest)]
