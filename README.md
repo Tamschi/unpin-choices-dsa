@@ -4,7 +4,7 @@
 [![Crates.io](https://img.shields.io/crates/v/unpin-choices-dsa)](https://crates.io/crates/unpin-choices-dsa)
 [![Docs.rs](https://docs.rs/unpin-choices-dsa/badge.svg)](https://docs.rs/unpin-choices-dsa)
 
-![Rust 1.54](https://img.shields.io/static/v1?logo=Rust&label=&message=1.54&color=grey)
+![Rust 1.57](https://img.shields.io/static/v1?logo=Rust&label=&message=1.57&color=grey)
 [![CI](https://github.com/Tamschi/unpin-choices-dsa/workflows/CI/badge.svg?branch=develop)](https://github.com/Tamschi/unpin-choices-dsa/actions?query=workflow%3ACI+branch%3Adevelop)
 ![Crates.io - License](https://img.shields.io/crates/l/unpin-choices-dsa/0.0.1)
 
