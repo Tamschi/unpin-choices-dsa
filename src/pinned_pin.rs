@@ -14,6 +14,10 @@ use core::{
 ///
 /// `T` and [`PinnedPin<T>`] are interchangeable pinned and unpinned each,
 /// but not necessarily between pinned and unpinned state.
+///
+/// # Item pinning
+///
+/// See [`crate::pinned_pin_pins_items`].
 #[repr(transparent)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct PinnedPin<T: ?Sized>(pub T);
@@ -37,7 +41,7 @@ impl<T: ?Sized> DerefMut for PinnedPin<T> {
 	}
 }
 
-/// The shared and exclusive versions must be implemented separately,
+/// The shared and exclusive accessors must be implemented separately,
 /// as [`Deref`]'s implementation isn't a "pin projection", i.e. an accessor involving [`Pin<_>`],
 /// and no such projection is made available automatically.
 ///
