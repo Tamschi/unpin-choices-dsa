@@ -10,10 +10,16 @@ use core::{
 use pin_project::pin_project;
 use project_uninit::partial_init;
 
+/// Returns a [`Future`] that completes when all futures in `futures` complete.
+///
+/// Each inner [`Future`] is polled once when the [`JoinFuture`] is polled, until completed.
 pub fn join<Fs: Futures>(futures: Fs) -> JoinFuture<Fs> {
 	JoinFuture::new(futures)
 }
 
+/// A [`Future`] that completes when all futures in `futures` complete.
+///
+/// Each inner [`Future`] is polled once when the [`JoinFuture`] is polled, until completed.
 #[pin_project]
 #[derive(Debug)]
 pub struct JoinFuture<Fs: Futures> {
@@ -133,3 +139,5 @@ where
 		}
 	}
 }
+
+//TODO: FusedFuture
