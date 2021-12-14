@@ -172,7 +172,7 @@ where
 {
 	/// Returns whether all constituent [`Future`]s have terminated.
 	///
-	/// Note that this is **not** directly analogous to [`FusedFuture::is_terminated]:
+	/// Note that this is **not** directly analogous to [`FusedFuture::is_terminated`]:
 	/// A result of `false` does **not** imply that this instance can be polled through [`Futures`].
 	fn all_terminated(&self) -> bool;
 }
