@@ -91,6 +91,9 @@ pub unsafe trait Futures: Sized {
 	) -> Poll<()>;
 }
 
+// A good implementation of Futures over arrays still requires better const-generics as of Rust 1.57.
+// (Specifically: Using such a constant in the definition of an associated type.)
+
 unsafe impl Futures for () {
 	type Outputs = ();
 	type Completion = BitArr!(for 0);
