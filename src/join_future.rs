@@ -165,10 +165,15 @@ where
 	}
 }
 
+/// Exposes an `all_terminated` method if [`FusedFuture`] can be implemented through a [`Futures`].
 pub trait FusedFutures: Futures
 where
 	for<'a> &'a Self::Completion: IntoIterator<Item = bool>,
 {
+	/// Returns whether all constituent [`Future`]s have terminated.
+	///
+	/// Note that this is **not** directly analogous to [`FusedFuture::is_terminated]:
+	/// A result of `false` does **not** imply that this instance can be polled through [`Futures`].
 	fn all_terminated(&self) -> bool;
 }
 
