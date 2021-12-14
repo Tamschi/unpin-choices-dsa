@@ -2,8 +2,8 @@
 
 use crate::pinned_pin::PinnedPin;
 use alloc::boxed::Box;
-use core::future::Future;
 use core::{
+	future::Future,
 	mem,
 	pin::Pin,
 	task::{Context, Poll},
