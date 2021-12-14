@@ -1,4 +1,4 @@
-//! A [`Future`] that interlaces [`Future`]s, until one completes!
+//! A [`Future`] that interlaces [`Future`]s, until one completes.
 
 use crate::pinned_pin::PinnedPin;
 use alloc::boxed::Box;
