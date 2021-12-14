@@ -11,6 +11,7 @@
 //!
 //! > I'm excited to see how pinning will interact with future Rust language features.
 
+#![deprecated = "This crate is permanently unstable and not intended for production use."]
 #![doc(html_root_url = "https://docs.rs/unpin-choices-dsa/0.0.1")]
 #![warn(clippy::pedantic, missing_docs)]
 #![allow(clippy::semicolon_if_nothing_returned)]
