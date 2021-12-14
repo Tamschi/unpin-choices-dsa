@@ -18,6 +18,9 @@
 
 A "data structures & algorithms" demo repository for a blog post. This isn't a well-structured package by itself.
 
+This crate is likely **permanently unstable**, so it will not receive a `1.0.0` version!  
+You can use it for sketching or to try things out before a polish-pass, but I implore you to move to a stable abstraction before production use.
+
 ## Installation
 
 Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
