@@ -23,6 +23,7 @@ mod readme {}
 extern crate alloc;
 
 pub mod anti_pinned;
+pub mod any_future;
 pub mod if_ready;
 pub mod join_future;
 pub mod pinned_pin;

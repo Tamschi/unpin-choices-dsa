@@ -2,28 +2,40 @@
 
 use bitvec::prelude::*;
 use core::{
+	convert::identity,
 	future::Future,
 	mem::MaybeUninit,
 	pin::Pin,
 	task::{Context, Poll},
 };
+use futures_core::FusedFuture;
 use pin_project::pin_project;
 use project_uninit::partial_init;
 
-/// Returns a [`Future`] that completes when all futures in `futures` complete.
+/// Returns a [`Future`] that completes when all [`Future`]s in `futures` complete.
+///
+/// The output is a collection of the outputs of those [`Future`]s.
 ///
 /// Each inner [`Future`] is polled once when the [`JoinFuture`] is polled, until completed.
 pub fn join<Fs: Futures>(futures: Fs) -> JoinFuture<Fs> {
 	JoinFuture::new(futures)
 }
 
-/// A [`Future`] that completes when all futures in `futures` complete.
+/// A [`Future`] that completes as soon as all [`Future`]s in `futures` have completed.
 ///
 /// Each inner [`Future`] is polled once when the [`JoinFuture`] is polled, until completed.
+///
+/// > It's pretty neat that we can do this also without a macro,
+/// > since that *may* lead to lower compile times due to less total emitted code.
+/// >
+/// > It's not as versatile as a macro if we don't control storage for the composed futures, though.
+///
+/// Compare and contrast [`crate::any_future::AnyFuture`].
 #[pin_project]
 #[derive(Debug)]
 pub struct JoinFuture<Fs: Futures> {
 	completion: Fs::Completion,
+	//TODO: Use `PinnedPin`.
 	#[pin]
 	futures: Fs,
 	outputs: MaybeUninit<Fs::Outputs>,
@@ -140,4 +152,24 @@ where
 	}
 }
 
-//TODO: FusedFuture
+impl<Fs: FusedFutures> FusedFuture for JoinFuture<Fs>
+where
+	for<'a> &'a Fs::Completion: IntoIterator<Item = bool>,
+{
+	fn is_terminated(&self) -> bool {
+		if (&self.completion).into_iter().all(identity) {
+			return true;
+		}
+
+		self.futures.all_terminated()
+	}
+}
+
+pub trait FusedFutures: Futures
+where
+	for<'a> &'a Self::Completion: IntoIterator<Item = bool>,
+{
+	fn all_terminated(&self) -> bool;
+}
+
+//TODO: `FusedFutures` implementations.

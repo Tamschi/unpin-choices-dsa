@@ -188,3 +188,27 @@ impl<'a, Item> DoubleEndedIterator for IterMut<'a, Item> {
 
 impl<'a, Item> ExactSizeIterator for IterMut<'a, Item> {}
 impl<'a, Item> FusedIterator for IterMut<'a, Item> {}
+
+/// We do need array versions of the `IntoIterator` implementations, for convenience at least.
+/// Internally, these just use the slice iterators, like the standard library does.
+impl<'a, Item, const N: usize> IntoIterator for Pin<&'a PinnedPin<[Item; N]>> {
+	type Item = Pin<&'a Item>;
+
+	type IntoIter = Iter<'a, Item>;
+
+	fn into_iter(self) -> Self::IntoIter {
+		unsafe { Pin::into_inner_unchecked(self) }.iter().pipe(Iter)
+	}
+}
+
+impl<'a, Item, const N: usize> IntoIterator for Pin<&'a mut PinnedPin<[Item; N]>> {
+	type Item = Pin<&'a mut Item>;
+
+	type IntoIter = IterMut<'a, Item>;
+
+	fn into_iter(self) -> Self::IntoIter {
+		unsafe { Pin::into_inner_unchecked(self) }
+			.iter_mut()
+			.pipe(IterMut)
+	}
+}
