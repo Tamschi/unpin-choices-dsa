@@ -38,7 +38,7 @@ version-sync = "0.9.3"
 wasm-bindgen-test = "0.3.28"
 
 [dependencies]
-bitvec = { version = "0.22.3", default-features = false }
+bitvec = { version = "1.0.0", default-features = false }
 futures-core = "0.3.18"
 pin-project = "1.0.8"
 project-uninit = "0.1.1"
